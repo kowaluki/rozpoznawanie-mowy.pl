@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule http://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{REQUEST_URI} !\.(?:css|js|jpe?g|gif|png|eot|ttf|woff|woff2)$ [NC]   
+RewriteRule .* index.php
