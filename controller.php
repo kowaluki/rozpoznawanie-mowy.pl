@@ -28,8 +28,8 @@ switch($url[3]) {
         $dbhost = "localhost";
         $dbport = '27017';
         $polaczenieDwa = new MongoDB\Driver\Manager("mongodb://localhost:27017");
-        $zapytanie = new MongoDB\Driver\Query([],[]);
-        $doBazy = $polaczenieDwa->executeQuery('apkomunikacja.uzytkownicy', $zapytanie);
+        $zapytania = new MongoDB\Driver\Query([],[]);
+        $doBazy = $polaczenieDwa->executeQuery('apkomunikacja.uzytkownicy', $zapytania);
         $wynik = [];
         $i= 0;
         foreach($doBazy as $kolejneDanie) {
