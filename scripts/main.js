@@ -41,9 +41,10 @@ function isJSON(json) {
 }
 
 function bind() {
+    
     synth = window.speechSynthesis;
     voices = synth.getVoices();
-    $("#nacisnij").click(function() {
+    $("#nacisnij").click(()=> {
         let nagranie = nagrywamy();
         console.log(nagranie);
     });
@@ -96,6 +97,13 @@ function dodajDoWiadomosci(result) {
     let wynik = result.results[0][0].transcript.toLowerCase();
     $("#textarea").val(wynik);
 }
+function xbind() {
+    $("#x").click(()=>{
+        $("#x").off();
+        $("#listaPytan").stop().fadeOut();
+        xbind();
+    });
+}
 
 function rozpoznajMowe(result) {
     
@@ -141,6 +149,10 @@ function rozpoznajMowe(result) {
             
 
         break;
+        case "lista pytań":
+            $("#listaPytan").fadeIn();
+            xbind();
+        break;
         default:
         switch(true) {
             case wynik.includes("napisz do"):
@@ -167,7 +179,11 @@ function rozpoznajMowe(result) {
                     synth.speak(utterThis);
                 }
             break;
+            default:
+            let nieRozumiem = new SpeechSynthesisUtterance("Nie rozumiem pytania. Powiedz: lista pytań, aby zobaczyć dostępne opcje.");
+            synth.speak(nieRozumiem);
         }
             
     }
 }
+

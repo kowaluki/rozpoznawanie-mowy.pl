@@ -3,3 +3,30 @@ body {
     user-select: none;
     -webkit-user-select: none;
 }
+
+#listaPytan {
+    /* display: none; */
+    background: white;
+    position: relative;
+    color: black;
+    width: 80vw;
+    min-height: 50vh;
+}
+
+#x {
+    position:absolute;
+    right: 0;
+    top: 0;
+    padding: 5px;
+    padding-top: 2px;
+    color: black;
+    font-size:30px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+}
+
+#x:active {
+    transform:scale(0.7,0.7);
+}
