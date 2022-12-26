@@ -21,15 +21,13 @@ switch($url[3]) {
         exit();
     break;
     case "downloadUsers":
-        //polaczDwa = new zapytajMongo("","",["_id" => $gotowiec],[],"mo1482_kuchnia.dania_Zrobione_doSprawdzenia","eleventh");
-        //string $skladnikDoBazy, string $wybranaWartosc,array $filters, array $options, string $location, string $function
-        $username = "";
-        $password = "";
-        $dbhost = "localhost";
+        $username = "mo1482_apkom";
+        $password = "bazaAp1Komunikacja";
+        $dbhost = "91.185.184.123";
         $dbport = '27017';
-        $polaczenieDwa = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+        $polaczenieDwa = new MongoDB\Driver\Manager("mongodb://${username}:${password}@$dbhost:$dbport/${username}");
         $zapytania = new MongoDB\Driver\Query([],[]);
-        $doBazy = $polaczenieDwa->executeQuery('apkomunikacja.uzytkownicy', $zapytania);
+        $doBazy = $polaczenieDwa->executeQuery($username.'.uzytkownicy', $zapytania);
         $wynik = [];
         $i= 0;
         foreach($doBazy as $kolejneDanie) {

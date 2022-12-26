@@ -5,20 +5,39 @@ body {
 }
 
 #listaPytan {
-    /* display: none; */
-    background: white;
+    display: none;
+    z-index: 1;
     position: relative;
+    margin-top: 20px;
     color: black;
-    width: 80vw;
-    min-height: 50vh;
+    min-width: 50%;
+    overflow-x: auto;
+    min-height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+}
+
+#zadaj {
+    position: fixed;
+    top:0;
+    right: 0;
+    width: 200px;
+    z-index: 3;
+    background: white;
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
 }
 
 #x {
-    position:absolute;
-    right: 0;
+    position:sticky;
+    background: white;
+    z-index: 2;
+    text-align: right;
+    width: calc(100% - 15px);
     top: 0;
     padding: 5px;
-    padding-top: 2px;
     color: black;
     font-size:30px;
     font-weight: 700;
@@ -27,6 +46,11 @@ body {
     transition: 0.1s ease-in-out;
 }
 
-#x:active {
-    transform:scale(0.7,0.7);
+
+#pytania {
+    padding: 20px;
+}
+
+button {
+    font-size: 30px;
 }
